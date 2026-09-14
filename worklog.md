@@ -18,3 +18,19 @@ Stage Summary:
 - E2E verified in browser (agent-browser): login + wrong-password error, dashboard stats/pipeline/activity, job create/close, candidate create with PDF resume parse (all 6 fields extracted + reviewed), apply to job, Applied→Screening (menu) →Interview (drag & drop) →Selected→Hired, reject flow, interview schedule + complete + feedback, search + empty states, resume download, 401 guards, mobile (390px) and desktop (1440px) layouts
 - Login: admin@attitude360.com / admin123
 - All lint checks pass; no runtime errors in dev.log after fixes
+
+---
+Task ID: 2
+Agent: Super Z (main agent)
+Task: Fix "not able to sign in" — user reported login failure
+
+Work Log:
+- Diagnosed: dev server running fine on :3000, login API returned 401 "Invalid email or password"
+- Queried SQLite via Prisma: database completely empty (0 users, 0 jobs, 0 candidates, 0 applications, 0 interviews) — sandbox re-init recreated db/custom.db without seed data
+- Re-ran scripts/seed.ts (idempotent upserts): admin user + 5 jobs + 15 candidates + 16 applications + 5 interviews restored
+- Verified via curl: correct credentials → 200 OK + oroos_session cookie; wrong password → 401; /api/dashboard with session → full stats/pipeline/activity payload
+
+Stage Summary:
+- Root cause: environment reset wiped seeded DB, not a code/auth bug
+- Login restored: admin@attitude360.com / admin123
+- No code changes required
