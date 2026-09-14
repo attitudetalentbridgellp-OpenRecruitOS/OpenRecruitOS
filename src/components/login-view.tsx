@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Loader2, LogIn, ShieldCheck } from "lucide-react";
+import { Loader2, LogIn, ShieldCheck, UserPlus } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +9,15 @@ import { Label } from "@/components/ui/label";
 import { apiClient, SessionUser } from "@/lib/client";
 import { APP_BY, APP_NAME, APP_TAGLINE } from "@/lib/constants";
 
-export function LoginView({ onLogin }: { onLogin: (user: SessionUser) => void }) {
+export function LoginView({
+  onLogin,
+  onSignUp,
+  firstRun = false,
+}: {
+  onLogin: (user: SessionUser) => void;
+  onSignUp?: () => void;
+  firstRun?: boolean;
+}) {
   const [email, setEmail] = useState("admin@attitude360.com");
   const [password, setPassword] = useState("admin123");
   const [error, setError] = useState<string | null>(null);
@@ -51,6 +59,23 @@ export function LoginView({ onLogin }: { onLogin: (user: SessionUser) => void })
             Use your recruiter account to access the dashboard.
           </p>
 
+          {firstRun && (
+            <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2.5 text-sm text-emerald-800">
+              <UserPlus className="mt-0.5 h-4 w-4 shrink-0" />
+              <p>
+                This instance has no accounts yet.{" "}
+                <button
+                  type="button"
+                  onClick={onSignUp}
+                  className="font-semibold underline underline-offset-2"
+                >
+                  Create your admin account
+                </button>{" "}
+                to get started.
+              </p>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -91,6 +116,19 @@ export function LoginView({ onLogin }: { onLogin: (user: SessionUser) => void })
               {busy ? "Signing in…" : "Sign in"}
             </Button>
           </form>
+
+          {onSignUp && !firstRun && (
+            <div className="mt-6 text-center text-sm text-muted-foreground">
+              Don&apos;t have an account?{" "}
+              <button
+                type="button"
+                onClick={onSignUp}
+                className="font-medium text-emerald-700 underline-offset-4 hover:underline"
+              >
+                Sign up
+              </button>
+            </div>
+          )}
 
           <div className="mt-6 flex items-start gap-2 rounded-lg border bg-muted/40 px-3 py-2.5 text-xs text-muted-foreground">
             <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />

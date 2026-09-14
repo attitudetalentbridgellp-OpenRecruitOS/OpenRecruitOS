@@ -2,6 +2,8 @@
 
 export type SessionUser = { id: string; name: string; email: string };
 
+export type AuthStatus = { users: number; firstRun: boolean };
+
 export type Job = {
   id: string;
   title: string;
@@ -169,6 +171,9 @@ export const apiClient = {
   /* auth */
   login: (email: string, password: string) =>
     api<SessionUser>("/api/auth/login", { method: "POST", body: JSON.stringify({ email, password }) }),
+  register: (name: string, email: string, password: string) =>
+    api<SessionUser>("/api/auth/register", { method: "POST", body: JSON.stringify({ name, email, password }) }),
+  authStatus: () => api<AuthStatus>("/api/auth/status"),
   logout: () => api<{ ok: boolean }>("/api/auth/logout", { method: "POST" }),
   me: () => api<SessionUser>("/api/auth/me"),
   updateProfile: (name: string) =>

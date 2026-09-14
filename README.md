@@ -85,6 +85,25 @@ Useful scripts:
 
 ---
 
+## Accounts & Sign Up
+
+There are two ways to get an account, depending on how you deployed:
+
+1. **First-run setup (fresh instance).** Deploy with an empty database and open the app —
+   OpenRecruitOS detects that no accounts exist and shows a *“Set up your workspace”* screen.
+   The first account you create acts as your admin/recruiter account.
+2. **Open sign-up.** The sign-in page has a **Sign up** link. Teammates can create their own
+   recruiter accounts (name + email + password) and immediately join the same workspace.
+   Passwords are hashed with bcrypt; sessions are signed JWTs in HttpOnly cookies.
+3. **Demo seed.** `bun run db:seed` (or the Docker entrypoint with `SEED_DEMO_DATA=true`)
+   creates the demo account `admin@attitude360.com` / `admin123` plus sample data.
+
+> All accounts in the Community Edition are equal recruiters in a single workspace —
+> there are intentionally no roles or permission levels. Fine-grained RBAC, invites and
+> SSO are reserved for the commercial editions.
+
+---
+
 ## The Core Workflow
 
 The full recruitment loop works end-to-end:

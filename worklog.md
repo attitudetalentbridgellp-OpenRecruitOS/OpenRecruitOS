@@ -34,3 +34,25 @@ Stage Summary:
 - Root cause: environment reset wiped seeded DB, not a code/auth bug
 - Login restored: admin@attitude360.com / admin123
 - No code changes required
+
+---
+Task ID: 3
+Agent: Super Z (main agent)
+Task: Add Sign Up / onboarding flow ("How someone can sign up and start working with this ATS")
+
+Work Log:
+- Created POST /api/auth/register: name/email/password validation (email regex, min 6-char password), lowercase email, 409 on duplicate, bcrypt hash, creates user + issues session cookie (auto sign-in)
+- Created GET /api/auth/status: { users, firstRun } so UI can detect fresh deployments with zero accounts (public, non-sensitive)
+- Added register()/authStatus() to typed API client
+- Created src/components/signup-view.tsx: brand-consistent sign-up card (full name, email, password, confirm), client-side validation, server error display, link back to sign-in
+- Updated login-view.tsx: "Don't have an account? Sign up" link + first-run banner ("Create your admin account") replacing demo hint when instance is empty
+- Updated page.tsx: authMode state (signin/signup), boot-time authStatus fetch (firstRun defaults UI to signup), logout resets to signin mode
+- Recreated lost .env.example (was wiped in sandbox reset along with DB) documenting DATABASE_URL, JWT_SECRET, UPLOAD_DIR, SEED_DEMO_DATA, APP_PORT
+- README: new "Accounts & Sign Up" section covering first-run setup, open sign-up, demo seed
+- Tests: curl (valid register 200+cookie, duplicate 409, short password 400, missing name 400, bad email 400, /me with new session, login with new account 200, status users count correct); agent-browser E2E (Sign up link → form → create "Anita Desai" → auto-login to dashboard, logout → duplicate email shows 409 error inline, password mismatch client validation, screenshot saved scripts/signup-duplicate-error.png)
+- eslint clean on all touched files; no runtime errors in dev.log
+
+Stage Summary:
+- Sign-up is now available: login page → "Sign up" → create account → straight into workspace
+- Fresh deployments (empty DB) auto-show "Set up your workspace" first-run screen
+- All accounts are equal recruiters in one workspace (per CE spec: no roles/permissions); RBAC/invites/SSO reserved for commercial editions
