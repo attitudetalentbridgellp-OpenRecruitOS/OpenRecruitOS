@@ -1,0 +1,93 @@
+// OpenRecruitOS Community Edition — Prisma Schema
+// Entities: User, Job, Candidate, Application, ApplicationHistory, Interview
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Job {
+  id             String   @id @default(cuid())
+  title          String
+  description    String
+  skills         String   @default("") // comma-separated
+  experience     String   @default("") // e.g. "2-4 years"
+  location       String   @default("")
+  salary         String   @default("")
+  employmentType String   @default("Full-time") // Full-time | Part-time | Contract | Internship
+  status         String   @default("Open") // Open | Closed
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  applications   Application[]
+}
+
+model Candidate {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @default("")
+  phone        String   @default("")
+  resume       String   @default("") // storage key of uploaded file (local storage key)
+  resumeName   String   @default("") // original file name for display/download
+  skills       String   @default("") // comma-separated
+  experience   String   @default("") // e.g. "3 years" / free text
+  education    String   @default("")
+  location     String   @default("")
+  salary       String   @default("")
+  noticePeriod String   @default("")
+  notes        String   @default("")
+  tags         String   @default("") // comma-separated
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  applications Application[]
+}
+
+model Application {
+  id          String   @id @default(cuid())
+  candidateId String
+  jobId       String
+  stage       String   @default("Applied") // Applied | Screening | Interview | Selected | Hired | Rejected
+  status      String   @default("Active") // Active | Rejected | Hired
+  appliedAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  candidate   Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  job         Job       @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  history     ApplicationHistory[]
+  interviews  Interview[]
+
+  @@unique([candidateId, jobId])
+}
+
+model ApplicationHistory {
+  id            String   @id @default(cuid())
+  applicationId String
+  previousStage String
+  newStage      String
+  changedAt     DateTime @default(now())
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model Interview {
+  id            String   @id @default(cuid())
+  applicationId String
+  interviewer   String
+  date          String // ISO date string yyyy-MM-dd
+  time          String // HH:mm
+  status        String   @default("Scheduled") // Scheduled | Completed | Cancelled
+  feedback      String   @default("")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}

@@ -1,0 +1,31 @@
+# OpenRecruitOS Community Edition — simplest self-host setup (SQLite, zero external services)
+#
+#   git clone <repository>
+#   cd openrecruitos
+#   docker compose up -d
+#
+# Login with the demo account: admin@attitude360.com / admin123
+# For a PostgreSQL-backed setup use: docker compose -f docker-compose.postgres.yml up -d
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        DATABASE_PROVIDER: sqlite
+    container_name: openrecruitos-app
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      DATABASE_URL: file:/app/db/openrecruitos.db
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      UPLOAD_DIR: /app/uploads
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
+    volumes:
+      - app-db:/app/db
+      - app-uploads:/app/uploads
+    restart: unless-stopped
+
+volumes:
+  app-db:
+  app-uploads:

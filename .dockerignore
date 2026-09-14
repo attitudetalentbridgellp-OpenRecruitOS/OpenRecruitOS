@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+db
+uploads
+dev.log
+server.log
+*.md
+.env
+.env.*
+scripts/test-resume.*
+scripts/*.png
+tests
+examples
+Caddyfile

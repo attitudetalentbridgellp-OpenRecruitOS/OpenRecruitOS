@@ -1,0 +1,46 @@
+# OpenRecruitOS Community Edition — PostgreSQL setup
+#
+#   docker compose -f docker-compose.postgres.yml up -d
+#
+# Uses the same application image built with the PostgreSQL Prisma datasource.
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: openrecruitos-db
+    environment:
+      POSTGRES_USER: openrecruitos
+      POSTGRES_PASSWORD: openrecruitos
+      POSTGRES_DB: openrecruitos
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U openrecruitos -d openrecruitos"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      args:
+        DATABASE_PROVIDER: postgresql
+    container_name: openrecruitos-app
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      DATABASE_URL: postgresql://openrecruitos:openrecruitos@db:5432/openrecruitos
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      UPLOAD_DIR: /app/uploads
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
+    volumes:
+      - app-uploads:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pg-data:
+  app-uploads:
