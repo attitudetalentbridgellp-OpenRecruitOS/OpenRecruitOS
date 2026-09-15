@@ -171,3 +171,18 @@ Work Log:
 Stage Summary:
 - Repo is GitHub-ready: screenshots embedded in README, MIT LICENSE, .env.example tracked, zero secrets/DB/personal uploads tracked, clean working tree on main
 - Deliverables in download/: openrecruitos-screenshots/ (10 PNGs), openrecruitos-ce-source.zip, README.md
+
+---
+Task ID: 10
+Agent: Super Z (main agent)
+Task: Make the sign-out icon lines white
+
+Work Log:
+- app-shell.tsx desktop sidebar user bar: logout ghost Button inherited dark text-foreground on the navy sidebar; added text-sidebar-foreground + hover:bg-white/10 hover:text-sidebar-foreground so icon strokes render white including hover
+- Same block: user email text-muted-foreground (dark on navy) → text-sidebar-foreground/60 for readability
+- Mobile Logout button (on white card bar) left untouched — dark icon correct there
+- Verified via browser screenshot (scripts/signout-white-check.png): icon renders white on navy; eslint clean
+- Committed and rebuilt download/openrecruitos-ce-source.zip to stay in sync
+
+Stage Summary:
+- Sign-out icon in the sidebar user bar is white on the navy sidebar in both normal and hover states; user bar text fully readable
