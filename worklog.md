@@ -151,3 +151,23 @@ Work Log:
 Stage Summary:
 - Attitude360 branding now always accompanied by the formal name "Attitude TalentBridge LLP"; website attitude360.in linked from About (settings) and both auth landing pages
 - Single source of truth in constants.ts (APP_COMPANY / APP_WEBSITE / APP_WEBSITE_URL) — future branding edits are one-line changes
+
+---
+Task ID: 9
+Agent: Super Z (main agent)
+Task: GitHub-readiness package — app screenshots, README with install steps, LICENSE, clean source zip
+
+Work Log:
+- Captured 10 fresh screenshots at docs/screenshots/ (agent-browser, 1440x900 desktop + 390x844 mobile): 01-login, 02-signup, 03-dashboard (retaken after toast dismissed), 04-jobs, 05-candidates, 06-candidate-detail, 07-applications-kanban, 08-interviews, 09-settings-about, 10-mobile-dashboard
+- Copied all screenshots to download/openrecruitos-screenshots/ for direct user access
+- README.md: added "Screenshots" section (grid tables + <details> for extras) embedding docs/screenshots paths; rewrote Local Development as "Install & Run Locally (without Docker)" with prerequisites, 5 numbered steps, npm-first commands, auto-seed explanation and available-scripts table
+- src/lib/seed.ts: import @/lib/db → ./db (decoupled seeder from tsconfig paths)
+- Verified seeding still works: bun scripts/seed.ts → "Skipped seeding — database already has data"; app boots and serves 200
+- Created LICENSE (MIT, Attitude TalentBridge LLP · attitude360.in) matching the "MIT licensed" claims
+- Git hygiene audit before publish: untracked .env (secrets) and upload/ (raw brand sources + runtime uploads), added /upload/, /uploads/, /download/ to .gitignore, force-added .env.example (was silently excluded by .env* rule — would have broken fresh clones)
+- Committed all changes on main (3 commits); packaged clean source: git archive → download/openrecruitos-ce-source.zip (206 files, verified: README/LICENSE/.env.example/screenshots in; no .env/.db/node_modules) + README copy at download/README.md
+- No git remote configured yet — push steps provided to user in chat
+
+Stage Summary:
+- Repo is GitHub-ready: screenshots embedded in README, MIT LICENSE, .env.example tracked, zero secrets/DB/personal uploads tracked, clean working tree on main
+- Deliverables in download/: openrecruitos-screenshots/ (10 PNGs), openrecruitos-ce-source.zip, README.md
