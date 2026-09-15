@@ -206,10 +206,16 @@ export function AppShell({
               </div>
               <div className="min-w-0">
                 <p className="truncate text-xs font-medium text-sidebar-foreground">{user.name}</p>
-                <p className="truncate text-[10px] text-muted-foreground">{user.email}</p>
+                <p className="truncate text-[10px] text-sidebar-foreground/60">{user.email}</p>
               </div>
             </div>
-            <Button variant="ghost" size="icon" aria-label="Log out" onClick={() => setLogoutOpen(true)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Log out"
+              onClick={() => setLogoutOpen(true)}
+              className="text-sidebar-foreground hover:bg-white/10 hover:text-sidebar-foreground"
+            >
               <LogOut className="h-4 w-4" />
             </Button>
           </div>
