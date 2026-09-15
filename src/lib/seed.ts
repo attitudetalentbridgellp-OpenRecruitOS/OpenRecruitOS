@@ -146,7 +146,7 @@ export async function seedDemoData(log: (msg: string) => void = console.log): Pr
 
   // ---------------- Applications across stages ----------------
   // [candidateIdx, jobIdx, stage, appliedDaysAgo, extraHistory]
-  const plan: [number, number, string, number, string[][]][] = [
+  const plan: [number, number, string, number, [string, string, number][]][] = [
     // Applied — fresh applications
     [10, 0, "Applied", 1, []],
     [8, 2, "Applied", 2, []],

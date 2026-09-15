@@ -73,7 +73,16 @@ export function JobFormDialog({
   job?: Job | null;
   onSaved: () => void;
 }) {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<{
+    title: string;
+    description: string;
+    skills: string;
+    experience: string;
+    location: string;
+    salary: string;
+    employmentType: string;
+    status: Job["status"];
+  }>({
     title: "",
     description: "",
     skills: "",
@@ -685,7 +694,7 @@ export function JobDetailView({
               <div>
                 <dt className="text-muted-foreground">Salary</dt>
                 <dd className="mt-0.5 flex items-center gap-1 font-medium">
-                  <Banknote className="h-3.5 w-3.5 text-emerald-600" />
+                  <Banknote className="h-3.5 w-3.5 text-primary" />
                   {job.salary || "—"}
                 </dd>
               </div>

@@ -89,7 +89,7 @@ export function AddApplicationDialog({
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <UserPlus className="h-5 w-5 text-emerald-600" />
+            <UserPlus className="h-5 w-5 text-primary" />
             Add Candidate to Job
           </DialogTitle>
           <DialogDescription>

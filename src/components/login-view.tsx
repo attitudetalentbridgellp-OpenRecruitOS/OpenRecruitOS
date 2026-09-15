@@ -40,14 +40,14 @@ export function LoginView({
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-emerald-50/60 via-background to-background px-4 py-10">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-sky-100/40 via-background to-background px-4 py-10">
       <div className="w-full max-w-md">
         {/* Brand */}
         <div className="mb-8 flex flex-col items-center text-center">
           <img src="/logo.png" alt="OpenRecruitOS logo" className="mb-4 h-16 w-16 drop-shadow-md" />
           <h1 className="text-2xl font-bold tracking-tight">{APP_NAME}</h1>
           <p className="mt-1 text-sm text-muted-foreground">{APP_TAGLINE}</p>
-          <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-emerald-700/70">{APP_BY}</p>
+          <p className="brand-gradient-text mt-0.5 text-xs font-medium uppercase tracking-wider">{APP_BY}</p>
         </div>
 
         {/* Card */}
@@ -58,7 +58,7 @@ export function LoginView({
           </p>
 
           {firstRun && (
-            <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2.5 text-sm text-emerald-800">
+            <div className="mt-4 flex items-start gap-2 rounded-lg border border-sky-200 bg-sky-50 px-3 py-2.5 text-sm text-sky-800">
               <UserPlus className="mt-0.5 h-4 w-4 shrink-0" />
               <p>
                 This instance has no accounts yet.{" "}
@@ -121,7 +121,7 @@ export function LoginView({
               <button
                 type="button"
                 onClick={onSignUp}
-                className="font-medium text-emerald-700 underline-offset-4 hover:underline"
+                className="font-medium text-primary underline-offset-4 hover:underline"
               >
                 Sign up
               </button>
@@ -129,7 +129,7 @@ export function LoginView({
           )}
 
           <div className="mt-6 flex items-start gap-2 rounded-lg border bg-muted/40 px-3 py-2.5 text-xs text-muted-foreground">
-            <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
+            <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
             <p>
               <span className="font-medium text-foreground">Demo account</span> — email{" "}
               <code className="rounded bg-background px-1 py-0.5 font-mono">admin@attitude360.com</code>, password{" "}

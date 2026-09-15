@@ -108,3 +108,26 @@ Work Log:
 Stage Summary:
 - Product branding now 100% user's mark: favicon set (previous task) + in-app logo (login, signup, sidebar, mobile bar, settings)
 - logo.svg retired; regeneration scripts persisted (scripts/make-logo.py, scripts/make-favicons.py)
+
+---
+Task ID: 7
+Agent: Super Z (main agent)
+Task: Match product theme colors to the logo colors and shades
+
+Work Log:
+- Extracted exact logo palette from upload/app icon.png via scripts/extract-logo-colors.py: azure #06A2F5 (oklch 0.684 0.163 243), teal-green #0FE4A5 (oklch 0.814 0.171 164), deep navy tile #001F5B (oklch 0.265 0.114 261)
+- Computed WCAG-safe OKLCH theme values with scripts/logo-oklch.py: primary deepened to oklch(0.555 0.15 244) = #0079C3 for 4.64:1 AA contrast with white button text; verified sidebar fg 12.9:1, sidebar muted 6.4:1, dark-mode primary 6.85:1
+- Rewrote globals.css :root + .dark palettes: azure-tinted backgrounds/borders/muted, azure ring & focus, logo-derived chart ramp (azure/cyan/teal/navy/light-azure), sidebar tokens switched to deep navy (logo tile) with light foreground
+- Added .brand-gradient-text utility (linear-gradient azure→teal, exact logo swoosh) used for "By Attitude360" wordmark on login, signup and settings
+- Updated themeColor meta in layout.tsx from old emerald #0d9463 to brand azure #06a2f5
+- Re-themed app-shell: navy sidebar (bg-sidebar + sidebar-border edges), nav items use sidebar-foreground/70 with sidebar-accent hover, active item bg-primary, brand block + username text-sidebar-foreground (fixed dark-on-navy inheritance bug found in screenshot), desktop avatar bg-primary/25 with white/15 ring, mobile avatar sky tint
+- Stage palette now mirrors logo gradient: Applied slate → Screening sky → Interview blue → Selected teal → Hired emerald (logo green) → Rejected red; pipeline funnel bars + kanban column dots updated to match
+- Replaced all off-palette accents across components: emerald icons/links → text-primary (dashboard stat icons, settings, jobs salary, candidates resume, interviews complete action, add-application, loaders, ShieldCheck); violet/amber Interview/Screening → blue/sky everywhere (badges, dots, bars, activity icons); JobStatus Open emerald → sky; drop-target highlight → sky ring; resume drag-over zone → sky; avatar tone pool re-centered to sky/teal/blue/cyan/emerald/indigo family
+- Kept emerald only for success semantics (Hired stage, interview Completed, resume-parse success note) matching the logo's green swoosh
+- Fixed 2 pre-existing tsc errors unrelated to theme: jobs-view JobFormDialog form state typed with status: Job["status"]; seed.ts plan tuple history typed [string, string, number][]
+- Verified in browser (agent-browser): login (azure CTA + gradient wordmark + sky wash), dashboard (navy sidebar, azure nav, funnel bars), kanban (stage dots/badges), settings (gradient wordmark, azure icons), jobs (sky Open badges); eslint clean, app-level tsc clean
+
+Stage Summary:
+- Product theme is now fully derived from the logo: azure #06A2F5 primary actions, teal-green #0FE4A5 success accents, navy #001F5B sidebar tile, blue→green stage ramp
+- All contrast ratios AA or better; dark mode palette also re-themed to navy/azure
+- Screenshots: scripts/theme-login.png, theme-dashboard-2.png, theme-kanban.png, theme-settings.png, theme-jobs.png

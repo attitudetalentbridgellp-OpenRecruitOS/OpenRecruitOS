@@ -171,7 +171,7 @@ export function CandidateFormDialog({
 
             {form.resume ? (
               <div className="mt-2 flex items-center gap-3 rounded-lg border bg-card px-3 py-2.5">
-                <FileText className="h-5 w-5 shrink-0 text-emerald-600" />
+                <FileText className="h-5 w-5 shrink-0 text-primary" />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium">{form.resumeName || "Resume.pdf"}</p>
                   <p className="text-xs text-muted-foreground">
@@ -186,7 +186,7 @@ export function CandidateFormDialog({
               <button
                 type="button"
                 className={`mt-2 flex w-full flex-col items-center justify-center gap-1.5 rounded-lg border-2 border-dashed px-4 py-6 text-center transition-colors ${
-                  dragOver ? "border-emerald-500 bg-emerald-50" : "border-border bg-card hover:bg-muted/50"
+                  dragOver ? "border-sky-500 bg-sky-50" : "border-border bg-card hover:bg-muted/50"
                 }`}
                 onClick={() => fileRef.current?.click()}
                 onDragOver={(e) => {
@@ -202,7 +202,7 @@ export function CandidateFormDialog({
                 }}
               >
                 {uploading ? (
-                  <Loader2 className="h-6 w-6 animate-spin text-emerald-600" />
+                  <Loader2 className="h-6 w-6 animate-spin text-primary" />
                 ) : (
                   <Upload className="h-6 w-6 text-muted-foreground" />
                 )}

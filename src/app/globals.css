@@ -43,73 +43,80 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/*
+ * OpenRecruitOS brand palette — derived directly from the logo:
+ *   azure  #06A2F5  -> oklch(0.684 0.163 243)   (primary accents, rings, charts)
+ *   teal   #0FE4A5  -> oklch(0.814 0.171 164)   (success / Hired states, gradient end)
+ *   navy   #001F5B  -> oklch(0.265 0.114 261)   (sidebar tile, ink shades)
+ * Primary is deepened one step (oklch 0.555) so white button labels keep AA contrast.
+ */
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.985 0.002 160);
-  --foreground: oklch(0.17 0.01 170);
+  --background: oklch(0.985 0.004 235);
+  --foreground: oklch(0.19 0.028 258);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.17 0.01 170);
+  --card-foreground: oklch(0.19 0.028 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.17 0.01 170);
-  --primary: oklch(0.508 0.118 165.612);
-  --primary-foreground: oklch(0.984 0.014 155.34);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.19 0.028 258);
+  --primary: oklch(0.555 0.15 244);
+  --primary-foreground: oklch(0.985 0.005 235);
+  --secondary: oklch(0.952 0.016 235);
+  --secondary-foreground: oklch(0.3 0.05 255);
+  --muted: oklch(0.958 0.008 240);
+  --muted-foreground: oklch(0.51 0.022 255);
+  --accent: oklch(0.945 0.02 235);
+  --accent-foreground: oklch(0.3 0.05 255);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.696 0.142 162.48);
-  --chart-1: oklch(0.696 0.142 162.48);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.97 0.004 160);
-  --sidebar-foreground: oklch(0.17 0.01 170);
-  --sidebar-primary: oklch(0.508 0.118 165.612);
-  --sidebar-primary-foreground: oklch(0.984 0.014 155.34);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.696 0.142 162.48);
+  --border: oklch(0.912 0.012 245);
+  --input: oklch(0.912 0.012 245);
+  --ring: oklch(0.684 0.163 243);
+  --chart-1: oklch(0.684 0.163 243);
+  --chart-2: oklch(0.76 0.115 210);
+  --chart-3: oklch(0.814 0.15 164.4);
+  --chart-4: oklch(0.43 0.11 262);
+  --chart-5: oklch(0.85 0.05 240);
+  --sidebar: oklch(0.26 0.095 261);
+  --sidebar-foreground: oklch(0.93 0.02 245);
+  --sidebar-primary: oklch(0.684 0.163 243);
+  --sidebar-primary-foreground: oklch(0.985 0.005 235);
+  --sidebar-accent: oklch(0.33 0.075 259);
+  --sidebar-accent-foreground: oklch(0.95 0.01 245);
+  --sidebar-border: oklch(0.36 0.07 258);
+  --sidebar-ring: oklch(0.684 0.163 243);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(0.17 0.03 260);
+  --foreground: oklch(0.96 0.01 240);
+  --card: oklch(0.21 0.035 259);
+  --card-foreground: oklch(0.96 0.01 240);
+  --popover: oklch(0.21 0.035 259);
+  --popover-foreground: oklch(0.96 0.01 240);
+  --primary: oklch(0.684 0.163 243);
+  --primary-foreground: oklch(0.17 0.04 260);
+  --secondary: oklch(0.27 0.04 258);
+  --secondary-foreground: oklch(0.96 0.01 240);
+  --muted: oklch(0.27 0.04 258);
+  --muted-foreground: oklch(0.72 0.03 250);
+  --accent: oklch(0.27 0.04 258);
+  --accent-foreground: oklch(0.96 0.01 240);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --ring: oklch(0.684 0.163 243);
+  --chart-1: oklch(0.684 0.163 243);
+  --chart-2: oklch(0.76 0.115 210);
+  --chart-3: oklch(0.814 0.15 165);
+  --chart-4: oklch(0.55 0.15 265);
+  --chart-5: oklch(0.85 0.05 240);
+  --sidebar: oklch(0.145 0.035 261);
+  --sidebar-foreground: oklch(0.93 0.02 245);
+  --sidebar-primary: oklch(0.684 0.163 243);
+  --sidebar-primary-foreground: oklch(0.17 0.04 260);
+  --sidebar-accent: oklch(0.23 0.05 259);
+  --sidebar-accent-foreground: oklch(0.96 0.01 240);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: oklch(0.684 0.163 243);
 }
 
 @layer base {
@@ -119,6 +126,19 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Brand gradient — the logo's azure → teal swoosh, as text fill */
+.brand-gradient-text {
+  background-image: linear-gradient(92deg, #06a2f5 10%, #0fe4a5 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Muted text sitting on the navy sidebar needs a lighter, cooler tone */
+.bg-sidebar .text-muted-foreground {
+  color: oklch(0.72 0.04 248);
 }
 
 /* Thin, unobtrusive scrollbars for kanban columns and lists */

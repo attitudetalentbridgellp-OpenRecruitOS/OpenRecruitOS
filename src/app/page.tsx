@@ -48,7 +48,7 @@ export default function Page() {
   if (loading) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-3">
-        <Loader2 className="h-6 w-6 animate-spin text-emerald-600" />
+        <Loader2 className="h-6 w-6 animate-spin text-primary" />
         <p className="text-sm text-muted-foreground">Loading OpenRecruitOS…</p>
       </div>
     );

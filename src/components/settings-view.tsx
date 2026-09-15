@@ -77,7 +77,7 @@ export function SettingsView({
         {/* Profile */}
         <form onSubmit={handleProfileSave} className="rounded-xl border bg-card p-5 shadow-sm">
           <div className="flex items-center gap-2">
-            <UserCog className="h-4 w-4 text-emerald-600" />
+            <UserCog className="h-4 w-4 text-primary" />
             <h2 className="font-semibold">Profile</h2>
           </div>
           <div className="mt-4 space-y-4">
@@ -102,7 +102,7 @@ export function SettingsView({
         {/* Password */}
         <form onSubmit={handlePasswordChange} className="rounded-xl border bg-card p-5 shadow-sm">
           <div className="flex items-center gap-2">
-            <KeyRound className="h-4 w-4 text-emerald-600" />
+            <KeyRound className="h-4 w-4 text-primary" />
             <h2 className="font-semibold">Change Password</h2>
           </div>
           <div className="mt-4 space-y-4">
@@ -155,7 +155,7 @@ export function SettingsView({
       {/* About */}
       <div className="rounded-xl border bg-card p-5 shadow-sm">
         <div className="flex items-center gap-2">
-          <Info className="h-4 w-4 text-emerald-600" />
+          <Info className="h-4 w-4 text-primary" />
           <h2 className="font-semibold">About</h2>
         </div>
         <div className="mt-3 flex items-center gap-3">
@@ -163,7 +163,7 @@ export function SettingsView({
           <div>
             <p className="font-semibold">{APP_NAME}</p>
             <p className="text-sm text-muted-foreground">{APP_TAGLINE}</p>
-            <p className="text-xs font-medium uppercase tracking-wide text-emerald-700/70">{APP_BY}</p>
+            <p className="brand-gradient-text text-xs font-medium uppercase tracking-wide">{APP_BY}</p>
           </div>
         </div>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

@@ -90,11 +90,11 @@ export function JobStatusBadge({ status }: { status: string }) {
       className={cn(
         "font-medium",
         status === "Open"
-          ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+          ? "bg-sky-50 text-sky-700 border-sky-200"
           : "bg-slate-100 text-slate-600 border-slate-200"
       )}
     >
-      {status === "Open" && <span className="mr-1 inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />}
+      {status === "Open" && <span className="mr-1 inline-block h-1.5 w-1.5 rounded-full bg-sky-500" />}
       {status}
     </Badge>
   );
@@ -107,12 +107,12 @@ export function TagBadge({ tag }: { tag: string }) {
 /* -------------------------------- avatars --------------------------------- */
 
 const AVATAR_TONES = [
-  "bg-emerald-100 text-emerald-700",
-  "bg-amber-100 text-amber-700",
-  "bg-violet-100 text-violet-700",
-  "bg-rose-100 text-rose-700",
+  "bg-sky-100 text-sky-700",
   "bg-teal-100 text-teal-700",
-  "bg-orange-100 text-orange-700",
+  "bg-blue-100 text-blue-700",
+  "bg-cyan-100 text-cyan-700",
+  "bg-emerald-100 text-emerald-700",
+  "bg-indigo-100 text-indigo-700",
 ];
 
 export function Avatar({ name, className }: { name: string; className?: string }) {
@@ -271,6 +271,6 @@ export function ConfirmDialog({
 export function ActivityStageIcon({ newStage }: { newStage: string }) {
   if (newStage === "Hired") return <CheckCircle2 className="h-4 w-4 text-emerald-600" />;
   if (newStage === "Rejected") return <XCircle className="h-4 w-4 text-red-500" />;
-  if (newStage === "Interview") return <CalendarDays className="h-4 w-4 text-violet-500" />;
-  return <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />;
+  if (newStage === "Interview") return <CalendarDays className="h-4 w-4 text-blue-500" />;
+  return <span className="inline-block h-2 w-2 rounded-full bg-sky-500" />;
 }

@@ -261,7 +261,7 @@ export function InterviewsView({ onNavigate }: { onNavigate: (state: NavState) =
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="h-7 px-2 text-emerald-600"
+                          className="h-7 px-2 text-primary"
                           aria-label="Mark completed"
                           onClick={() => setStatus(iv, "Completed")}
                         >

@@ -223,9 +223,9 @@ function KanbanColumn({
                 : stage === "Selected"
                   ? "bg-teal-400"
                   : stage === "Interview"
-                    ? "bg-violet-400"
+                    ? "bg-blue-400"
                     : stage === "Screening"
-                      ? "bg-amber-400"
+                      ? "bg-sky-400"
                       : stage === "Rejected"
                         ? "bg-red-400"
                         : "bg-slate-300"
@@ -246,7 +246,7 @@ function KanbanColumn({
         ref={setNodeRef}
         className={cn(
           "flex max-h-[calc(100vh-320px)] min-h-[120px] flex-1 flex-col gap-2 overflow-y-auto p-2 thin-scrollbar",
-          isOver && "bg-emerald-50/60 ring-2 ring-inset ring-emerald-300 rounded-b-xl"
+          isOver && "bg-sky-50/60 ring-2 ring-inset ring-sky-300 rounded-b-xl"
         )}
         aria-label={`${stage} column with ${apps.length} applications`}
       >
@@ -398,7 +398,7 @@ function ApplicationDetailDialog({
             <ol className="mt-2 space-y-2">
               {app.history.map((h) => (
                 <li key={h.id} className="flex items-center gap-2 text-sm">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
                   {h.previousStage ? (
                     <span>
                       {h.previousStage} <span aria-hidden>→</span> <StageBadge stage={h.newStage} className="mx-0.5" />

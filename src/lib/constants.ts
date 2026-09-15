@@ -38,11 +38,11 @@ export function isValidInterviewStatus(s: string): s is InterviewStatus {
   return (INTERVIEW_STATUSES as readonly string[]).includes(s);
 }
 
-/** Stage badge tone classes used across the UI */
+/** Stage badge tone classes used across the UI — blue→teal→green ramp mirrors the logo gradient */
 export const STAGE_STYLES: Record<string, string> = {
   Applied: "bg-slate-100 text-slate-700 border-slate-200",
-  Screening: "bg-amber-50 text-amber-700 border-amber-200",
-  Interview: "bg-violet-50 text-violet-700 border-violet-200",
+  Screening: "bg-sky-50 text-sky-700 border-sky-200",
+  Interview: "bg-blue-50 text-blue-700 border-blue-200",
   Selected: "bg-teal-50 text-teal-700 border-teal-200",
   Hired: "bg-emerald-50 text-emerald-700 border-emerald-200",
   Rejected: "bg-red-50 text-red-700 border-red-200",

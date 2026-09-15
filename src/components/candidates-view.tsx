@@ -462,7 +462,7 @@ export function CandidateDetailView({
             <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Resume</h2>
             {candidate.resume ? (
               <div className="mt-3 flex items-center gap-3 rounded-lg border px-3 py-2.5">
-                <FileText className="h-5 w-5 shrink-0 text-emerald-600" />
+                <FileText className="h-5 w-5 shrink-0 text-primary" />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium">{candidate.resumeName || "Resume"}</p>
                   <p className="text-xs text-muted-foreground">Uploaded file</p>
@@ -479,7 +479,7 @@ export function CandidateDetailView({
             ) : (
               <p className="mt-2 text-sm text-muted-foreground">
                 No resume uploaded.{" "}
-                <button className="font-medium text-emerald-700 underline-offset-2 hover:underline" onClick={() => setEditOpen(true)}>
+                <button className="font-medium text-primary underline-offset-2 hover:underline" onClick={() => setEditOpen(true)}>
                   Upload one now
                 </button>
               </p>

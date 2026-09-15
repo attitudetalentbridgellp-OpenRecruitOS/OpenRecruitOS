@@ -92,7 +92,7 @@ export function DashboardView({
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-muted-foreground">{label}</span>
-                  <Icon className="h-4 w-4 text-emerald-600" />
+                  <Icon className="h-4 w-4 text-primary" />
                 </div>
                 <p className="mt-2 text-3xl font-bold tabular-nums tracking-tight">{value ?? 0}</p>
                 <p className="mt-1 truncate text-xs text-muted-foreground">{sub}</p>
@@ -139,9 +139,9 @@ export function DashboardView({
                                 : stage === "Selected"
                                   ? "bg-teal-400"
                                   : stage === "Interview"
-                                    ? "bg-violet-400"
+                                    ? "bg-blue-400"
                                     : stage === "Screening"
-                                      ? "bg-amber-400"
+                                      ? "bg-sky-400"
                                       : "bg-slate-300"
                             )}
                             style={{ width: `${Math.round((count / maxPipeline) * 100)}%` }}
