@@ -3,6 +3,10 @@
 export const APP_NAME = "OpenRecruitOS";
 export const APP_TAGLINE = "The Open Source Recruitment Operating System";
 export const APP_BY = "By Attitude360";
+/** Formal legal name of the company behind OpenRecruitOS. */
+export const APP_COMPANY = "Attitude TalentBridge LLP";
+export const APP_WEBSITE = "attitude360.in";
+export const APP_WEBSITE_URL = "https://attitude360.in";
 
 /** Pipeline stages in canonical order. Rejected is a separate terminal status. */
 export const STAGES = ["Applied", "Screening", "Interview", "Selected", "Hired"] as const;

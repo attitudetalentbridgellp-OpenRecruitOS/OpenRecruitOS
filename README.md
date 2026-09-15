@@ -2,7 +2,7 @@
 
 **The Open Source Recruitment Operating System**
 
-*By Attitude360*
+*By Attitude360 — a product of Attitude TalentBridge LLP · [attitude360.in](https://attitude360.in)*
 
 OpenRecruitOS **Community Edition** is a simple, modern, self-hostable open-source **Applicant Tracking System (ATS)**. It is intentionally small and focused — six core modules, no enterprise bloat:
 
@@ -207,3 +207,6 @@ and a public career portal.
 ## License
 
 Open source — Community Edition by Attitude360.
+
+OpenRecruitOS is developed and maintained by **Attitude TalentBridge LLP** ·
+[attitude360.in](https://attitude360.in)

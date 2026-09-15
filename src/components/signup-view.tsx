@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { apiClient, SessionUser } from "@/lib/client";
-import { APP_BY, APP_NAME, APP_TAGLINE } from "@/lib/constants";
+import { APP_BY, APP_COMPANY, APP_NAME, APP_TAGLINE, APP_WEBSITE, APP_WEBSITE_URL } from "@/lib/constants";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -66,6 +66,7 @@ export function SignupView({
           <h1 className="text-2xl font-bold tracking-tight">{APP_NAME}</h1>
           <p className="mt-1 text-sm text-muted-foreground">{APP_TAGLINE}</p>
           <p className="brand-gradient-text mt-0.5 text-xs font-medium uppercase tracking-wider">{APP_BY}</p>
+          <p className="mt-0.5 text-xs font-medium text-muted-foreground">{APP_COMPANY}</p>
         </div>
 
         {/* Card */}
@@ -169,6 +170,17 @@ export function SignupView({
 
         <p className="mt-6 text-center text-xs text-muted-foreground">
           OpenRecruitOS Community Edition · Self-hosted · MIT licensed
+        </p>
+        <p className="mt-1 text-center text-xs text-muted-foreground">
+          A product of {APP_COMPANY} ·{" "}
+          <a
+            href={APP_WEBSITE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary underline-offset-4 hover:underline"
+          >
+            {APP_WEBSITE}
+          </a>
         </p>
       </div>
     </div>

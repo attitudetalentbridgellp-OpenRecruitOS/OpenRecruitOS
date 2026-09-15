@@ -14,11 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://attitude360.in"),
   title: "OpenRecruitOS — The Open Source Recruitment Operating System",
   description:
-    "OpenRecruitOS is a simple, self-hostable, open-source Applicant Tracking System by Attitude360. Jobs, candidates, pipeline, interviews and dashboard.",
-  keywords: ["ATS", "Applicant Tracking System", "Open Source", "Recruitment", "OpenRecruitOS", "Attitude360"],
-  authors: [{ name: "Attitude360" }],
+    "OpenRecruitOS is a simple, self-hostable, open-source Applicant Tracking System by Attitude360 (Attitude TalentBridge LLP). Jobs, candidates, pipeline, interviews and dashboard.",
+  keywords: [
+    "ATS",
+    "Applicant Tracking System",
+    "Open Source",
+    "Recruitment",
+    "OpenRecruitOS",
+    "Attitude360",
+    "Attitude TalentBridge LLP",
+  ],
+  authors: [{ name: "Attitude TalentBridge LLP", url: "https://attitude360.in" }],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
@@ -31,8 +40,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "OpenRecruitOS",
-    description: "The Open Source Recruitment Operating System — by Attitude360",
+    description: "The Open Source Recruitment Operating System — by Attitude360 (Attitude TalentBridge LLP)",
     siteName: "OpenRecruitOS",
+    url: "https://attitude360.in",
     type: "website",
   },
 };

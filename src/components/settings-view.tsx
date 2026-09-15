@@ -1,13 +1,13 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Info, KeyRound, Loader2, UserCog } from "lucide-react";
+import { ExternalLink, Info, KeyRound, Loader2, UserCog } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { apiClient, SessionUser } from "@/lib/client";
-import { APP_BY, APP_NAME, APP_TAGLINE } from "@/lib/constants";
+import { APP_BY, APP_COMPANY, APP_NAME, APP_TAGLINE, APP_WEBSITE, APP_WEBSITE_URL } from "@/lib/constants";
 import { PageHeader } from "@/components/shared";
 
 export function SettingsView({
@@ -171,6 +171,21 @@ export function SettingsView({
           pipeline, resume parsing, interviews and a dashboard. Advanced features (AI parsing,
           integrations, SSO, cloud storage) are available in the commercial editions.
         </p>
+        <div className="mt-4 flex flex-col gap-2 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold">{APP_COMPANY}</p>
+            <p className="text-xs text-muted-foreground">The company behind OpenRecruitOS</p>
+          </div>
+          <a
+            href={APP_WEBSITE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center gap-1.5 rounded-lg border bg-muted/40 px-3 py-1.5 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
+          >
+            <ExternalLink className="h-3.5 w-3.5" />
+            {APP_WEBSITE}
+          </a>
+        </div>
       </div>
     </div>
   );

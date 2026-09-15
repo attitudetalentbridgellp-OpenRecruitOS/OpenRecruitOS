@@ -131,3 +131,23 @@ Stage Summary:
 - Product theme is now fully derived from the logo: azure #06A2F5 primary actions, teal-green #0FE4A5 success accents, navy #001F5B sidebar tile, blue→green stage ramp
 - All contrast ratios AA or better; dark mode palette also re-themed to navy/azure
 - Screenshots: scripts/theme-login.png, theme-dashboard-2.png, theme-kanban.png, theme-settings.png, theme-jobs.png
+
+---
+Task ID: 8
+Agent: Super Z (main agent)
+Task: Add formal company name "Attitude TalentBridge LLP" and website "attitude360.in" alongside Attitude360 branding (About + landing page)
+
+Work Log:
+- Added brand constants to src/lib/constants.ts: APP_COMPANY = "Attitude TalentBridge LLP", APP_WEBSITE = "attitude360.in", APP_WEBSITE_URL = "https://attitude360.in"
+- Landing page (login-view.tsx): formal name added under the "By Attitude360" gradient wordmark in the brand block; footer gained "A product of Attitude TalentBridge LLP · attitude360.in" with an external link (target=_blank, rel=noopener)
+- Signup view (signup-view.tsx): same brand-block formal name + footer company/website line for consistency across the auth landing flow
+- Settings → About card (settings-view.tsx): new company section below a divider — "Attitude TalentBridge LLP / The company behind OpenRecruitOS" plus an attitude360.in link chip with ExternalLink icon
+- Sidebar footer (app-shell.tsx): added formal name line ("Community Edition / By Attitude360 / Attitude TalentBridge LLP"); footer text color switched to sidebar-foreground/60 for proper contrast on the navy sidebar
+- layout.tsx metadata: authors → Attitude TalentBridge LLP (url attitude360.in), keywords + formal name, metadataBase + OpenGraph url → https://attitude360.in
+- README.md: header byline and License section now include the formal name and website link
+- Verified in browser (agent-browser): login page shows formal name in brand block + footer with correct href, sign-in → sidebar footer shows all 3 lines, Settings About card shows company block + attitude360.in chip; screenshots scripts/brand-login.png, brand-dashboard.png, brand-settings-about.png
+- eslint clean on all touched files; app-level tsc clean (remaining errors only in out-of-scope skills/ scaffolding); no page errors
+
+Stage Summary:
+- Attitude360 branding now always accompanied by the formal name "Attitude TalentBridge LLP"; website attitude360.in linked from About (settings) and both auth landing pages
+- Single source of truth in constants.ts (APP_COMPANY / APP_WEBSITE / APP_WEBSITE_URL) — future branding edits are one-line changes

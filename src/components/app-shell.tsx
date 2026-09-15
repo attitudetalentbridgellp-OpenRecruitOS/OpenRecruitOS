@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ConfirmDialog } from "@/components/shared";
 import { apiClient, SessionUser } from "@/lib/client";
-import { APP_NAME, APP_TAGLINE } from "@/lib/constants";
+import { APP_COMPANY, APP_NAME, APP_TAGLINE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { DashboardView } from "@/components/dashboard-view";
 import { JobsView, JobDetailView } from "@/components/jobs-view";
@@ -88,10 +88,12 @@ function SidebarContent({
         })}
       </nav>
 
-      <div className="px-5 pb-4 pt-2 text-[10px] leading-relaxed text-muted-foreground">
+      <div className="px-5 pb-4 pt-2 text-[10px] leading-relaxed text-sidebar-foreground/60">
         Community Edition
         <br />
         By Attitude360
+        <br />
+        {APP_COMPANY}
       </div>
     </div>
   );
