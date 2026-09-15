@@ -227,29 +227,6 @@ Pipeline stages: `Applied → Screening → Interview → Selected → Hired`, w
 
 ---
 
-## Design Notes (for future commercial editions)
-
-The codebase is deliberately modular so **OpenRecruitOS Cloud** and
-**OpenRecruitOS Enterprise** can extend it without rewrites:
-
-- **Resume parsing** sits behind the `ResumeParser` interface
-  (`src/lib/resume-parser.ts`). The shipped implementation is regex/heuristics
-  only — an AI-powered parser (matching, ranking, summaries) can replace it by
-  registering a new implementation, with zero API/UI changes.
-- **File storage** sits behind the `StorageDriver` interface
-  (`src/lib/storage.ts`). The Community Edition ships a local driver; an
-  S3-compatible driver is a drop-in replacement.
-- **Authentication** is isolated in `src/lib/auth.ts` so SSO/SAML/SCIM can be
-  added for the Enterprise edition.
-- **Database** switches between SQLite and PostgreSQL by swapping one Prisma
-  datasource line — the schema is portable.
-
-Intentionally **not** included in the Community Edition (per scope): AI
-features, job-board integrations (LinkedIn/Naukri/Indeed), calendar/video
-integrations, email/SMS/WhatsApp, advanced analytics, multi-tenancy, billing
-and a public career portal.
-
----
 
 ## Security Notes
 
