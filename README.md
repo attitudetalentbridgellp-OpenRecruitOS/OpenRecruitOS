@@ -17,6 +17,35 @@ OpenRecruitOS **Community Edition** is a simple, modern, self-hostable open-sour
 
 ---
 
+## Screenshots
+
+| Dashboard | Applications Kanban |
+| --- | --- |
+| ![Dashboard](docs/screenshots/03-dashboard.png) | ![Kanban](docs/screenshots/07-applications-kanban.png) |
+
+| Jobs | Candidates |
+| --- | --- |
+| ![Jobs](docs/screenshots/04-jobs.png) | ![Candidates](docs/screenshots/05-candidates.png) |
+
+| Candidate Profile | Interviews |
+| --- | --- |
+| ![Candidate profile](docs/screenshots/06-candidate-detail.png) | ![Interviews](docs/screenshots/08-interviews.png) |
+
+| Sign in | Mobile |
+| --- | --- |
+| ![Sign in](docs/screenshots/01-login.png) | ![Mobile](docs/screenshots/10-mobile-dashboard.png) |
+
+<details>
+<summary>More screenshots</summary>
+
+| Sign up | Settings & About |
+| --- | --- |
+| ![Sign up](docs/screenshots/02-signup.png) | ![Settings](docs/screenshots/09-settings-about.png) |
+
+</details>
+
+---
+
 ## Tech Stack
 
 | Layer     | Technology                                      |
@@ -58,30 +87,58 @@ This builds the same app against the PostgreSQL Prisma datasource and starts a `
 
 ---
 
-## Local Development
+## Install & Run Locally (without Docker)
+
+**Prerequisites:** [Node.js 20+](https://nodejs.org) (or [Bun](https://bun.sh)) and npm / bun / pnpm. No external database needed — SQLite is the default and the file is created automatically.
 
 ```bash
-bun install                 # or npm install
-cp .env.example .env        # adjust DATABASE_URL / JWT_SECRET if needed
-bun run db:push             # create/update the database schema
-bun run db:seed             # load demo data
-bun run dev                 # start the dev server on :3000
+# 1. Clone the repository
+git clone https://github.com/<your-username>/openrecruitos.git
+cd openrecruitos
+
+# 2. Install dependencies
+npm install          # or: bun install / pnpm install
+
+# 3. Create your environment file
+cp .env.example .env # defaults are fine for local development
+
+# 4. Create the database schema
+npm run db:push
+
+# 5. Start the development server
+npm run dev          # or: bun run dev
 ```
 
-Useful scripts:
+Open **http://localhost:3000**.
 
-| Command           | Description                              |
-| ----------------- | ---------------------------------------- |
-| `bun run dev`     | Start the development server             |
-| `bun run lint`    | Run ESLint                               |
-| `bun run build`   | Production build (standalone output)     |
-| `bun run db:push` | Push the Prisma schema to the database   |
-| `bun run db:seed` | Seed demo data (admin user + sample data)|
+**First run:** demo data (admin account, 5 jobs, 15 candidates, applications,
+interviews) is **seeded automatically** the first time the dev server starts
+against an empty database (`SEED_DEMO_DATA=true` in `.env.example`). You can
+also seed manually with `bun run db:seed` (requires Bun), or skip demo data by
+setting `SEED_DEMO_DATA=false` — then just use **Sign up** to create your own
+account.
+
+Sign in with the demo account:
+
+| Email                   | Password   |
+| ----------------------- | ---------- |
+| `admin@attitude360.com` | `admin123` |
+
+### Available scripts
+
+| Command             | Description                                       |
+| ------------------- | ------------------------------------------------- |
+| `npm run dev`       | Start the development server (auto-seeds if empty)|
+| `npm run build`     | Production build (standalone output)              |
+| `npm run start`     | Start the production server                       |
+| `npm run lint`      | Run ESLint                                        |
+| `npm run db:push`   | Push the Prisma schema to the database            |
+| `npm run db:seed`   | Seed demo data manually (requires Bun)            |
 
 > **Switching to PostgreSQL locally:** change the datasource provider in
 > `prisma/schema.prisma` to `postgresql` (a ready-made copy lives at
 > `prisma/schema.postgres.prisma`), point `DATABASE_URL` at your Postgres
-> instance and run `bun run db:push`.
+> instance and run `npm run db:push`.
 
 ---
 

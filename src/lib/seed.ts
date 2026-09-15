@@ -14,7 +14,7 @@
  *   unset + production          → never seed
  */
 import bcrypt from "bcryptjs";
-import { db } from "@/lib/db";
+import { db } from "./db";
 
 const daysAgo = (n: number) => new Date(Date.now() - n * 24 * 60 * 60 * 1000);
 const dateOffset = (n: number) => {
