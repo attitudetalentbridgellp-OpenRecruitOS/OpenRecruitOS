@@ -93,8 +93,8 @@ This builds the same app against the PostgreSQL Prisma datasource and starts a `
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/openrecruitos.git
-cd openrecruitos
+git clone https://github.com/attitudetalentbridgellp-OpenRecruitOS/OpenRecruitOS.git
+cd OpenRecruitOS
 
 # 2. Install dependencies
 npm install          # or: bun install / pnpm install
