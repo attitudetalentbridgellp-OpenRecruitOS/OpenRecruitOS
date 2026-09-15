@@ -56,3 +56,21 @@ Stage Summary:
 - Sign-up is now available: login page → "Sign up" → create account → straight into workspace
 - Fresh deployments (empty DB) auto-show "Set up your workspace" first-run screen
 - All accounts are equal recruiters in one workspace (per CE spec: no roles/permissions); RBAC/invites/SSO reserved for commercial editions
+
+---
+Task ID: 4
+Agent: Super Z (main agent)
+Task: Remove all z.ai blueprint names/logo/favicon traces from OpenRecruitOS
+
+Work Log:
+- Swept project for z.ai/z-ai/zai references: found unused z-ai-web-dev-sdk dependency in package.json, scaffold tests/ dir (z-ai-python-deploy-runner refs), scaffold examples/websocket dir, bun.lock entry
+- Verified public assets are already fully branded: favicon = custom emerald OpenRecruitOS logo.svg (metadata icons), layout metadata/OG all OpenRecruitOS/Attitude360, no favicon.ico present
+- Removed: z-ai-web-dev-sdk from package.json + bun install (lockfile purged), deleted tests/ and examples/ scaffold dirs
+- Set devIndicators:false in next.config.ts to hide the Next.js dev-tools overlay button for clean demos
+- Sandbox reset had wiped DB + .env.example again: re-seeded, recreated .env.example
+- Hardened against recurring DB wipes: extracted seeder to src/lib/seed.ts (idempotent guard: skips when users/jobs exist), scripts/seed.ts now thin CLI wrapper, added src/instrumentation.ts auto-seed on server boot (policy: SEED_DEMO_DATA=false never / true always-if-empty / unset = dev-only-if-empty)
+- Restarted dev server: boot log shows "[boot] Auto-seed skipped — database already has data"; verified login 200, /api/auth/status users:1 firstRun:false, logo.svg 200 image/svg+xml, favicon link=/logo.svg in DOM, no dev-tools button, eslint clean, project-wide sweep clean (bun.lock hit was base64-hash false positive)
+
+Stage Summary:
+- Zero z.ai traces remain in app code, deps, assets or docs; branding is 100% OpenRecruitOS/Attitude360
+- App now self-heals empty databases on boot with demo data (dev/demo), production stays clean unless SEED_DEMO_DATA=true
