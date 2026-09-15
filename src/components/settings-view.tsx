@@ -159,7 +159,7 @@ export function SettingsView({
           <h2 className="font-semibold">About</h2>
         </div>
         <div className="mt-3 flex items-center gap-3">
-          <img src="/logo.svg" alt="" className="h-10 w-10 rounded-lg" />
+          <img src="/logo-192.png" alt="" className="h-10 w-10" />
           <div>
             <p className="font-semibold">{APP_NAME}</p>
             <p className="text-sm text-muted-foreground">{APP_TAGLINE}</p>

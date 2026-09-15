@@ -44,9 +44,7 @@ export function LoginView({
       <div className="w-full max-w-md">
         {/* Brand */}
         <div className="mb-8 flex flex-col items-center text-center">
-          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary shadow-sm">
-            <img src="/logo.svg" alt="OpenRecruitOS logo" className="h-11 w-11 rounded-xl" />
-          </div>
+          <img src="/logo.png" alt="OpenRecruitOS logo" className="mb-4 h-16 w-16 drop-shadow-md" />
           <h1 className="text-2xl font-bold tracking-tight">{APP_NAME}</h1>
           <p className="mt-1 text-sm text-muted-foreground">{APP_TAGLINE}</p>
           <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-emerald-700/70">{APP_BY}</p>

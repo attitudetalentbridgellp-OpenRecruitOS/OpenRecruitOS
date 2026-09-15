@@ -90,3 +90,21 @@ Work Log:
 Stage Summary:
 - Favicon now uses the user's uploaded mark across all sizes (browser tab, bookmarks, iOS home screen, PWA)
 - logo.svg retained for in-app branding (login card + sidebar)
+
+---
+Task ID: 6
+Agent: Super Z (main agent)
+Task: Use uploaded app icon (upload/app icon.png) as the in-app logo
+
+Work Log:
+- Inspected upload: 1254x1254 RGBA — same swoosh mark as favicon, rendered as glowing rounded app-icon tile
+- Measured tile edges via brightness profiles (tile body x 58..1196, y 76..1234; white artifact strip y>=1236)
+- Created scripts/make-logo.py: exact tile crop → transparent square canvas → rounded-corner alpha mask (21% radius, alpha-multiply so transparency preserved)
+- Generated public/logo.png (512) + public/logo-192.png (192); verified on light emerald background — crisp edges, no artifacts
+- Replaced old emerald briefcase logo.svg in all 5 usages: login-view hero (now h-16 drop-shadow, removed emerald box), signup-view hero, app-shell sidebar (h-9) + mobile header (h-7), settings About (h-10)
+- Deleted public/logo.svg; verified zero remaining references
+- Verified: eslint clean, both assets HTTP 200, browser screenshots of login + sidebar confirm rendering
+
+Stage Summary:
+- Product branding now 100% user's mark: favicon set (previous task) + in-app logo (login, signup, sidebar, mobile bar, settings)
+- logo.svg retired; regeneration scripts persisted (scripts/make-logo.py, scripts/make-favicons.py)

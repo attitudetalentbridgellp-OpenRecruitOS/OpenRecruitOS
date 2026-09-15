@@ -58,7 +58,7 @@ function SidebarContent({
         className="flex items-center gap-3 px-5 pb-6 pt-6 text-left"
         onClick={() => onNavigate({ view: "dashboard" })}
       >
-        <img src="/logo.svg" alt="" className="h-9 w-9 rounded-lg" />
+        <img src="/logo-192.png" alt="" className="h-9 w-9" />
         <span className="min-w-0">
           <span className="block truncate text-sm font-bold tracking-tight">{APP_NAME}</span>
           <span className="block text-[10px] leading-tight text-muted-foreground">{APP_TAGLINE}</span>
@@ -140,7 +140,7 @@ export function AppShell({
       {/* Mobile top bar */}
       <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b bg-card px-4 lg:hidden">
         <div className="flex items-center gap-2">
-          <img src="/logo.svg" alt="" className="h-7 w-7 rounded-md" />
+          <img src="/logo-192.png" alt="" className="h-7 w-7" />
           <span className="text-sm font-bold tracking-tight">{APP_NAME}</span>
         </div>
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
