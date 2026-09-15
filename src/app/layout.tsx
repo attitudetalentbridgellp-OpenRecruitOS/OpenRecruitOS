@@ -20,7 +20,14 @@ export const metadata: Metadata = {
   keywords: ["ATS", "Applicant Tracking System", "Open Source", "Recruitment", "OpenRecruitOS", "Attitude360"],
   authors: [{ name: "Attitude360" }],
   icons: {
-    icon: "/logo.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "OpenRecruitOS",

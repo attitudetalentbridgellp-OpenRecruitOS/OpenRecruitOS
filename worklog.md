@@ -74,3 +74,19 @@ Work Log:
 Stage Summary:
 - Zero z.ai traces remain in app code, deps, assets or docs; branding is 100% OpenRecruitOS/Attitude360
 - App now self-heals empty databases on boot with demo data (dev/demo), production stays clean unless SEED_DEMO_DATA=true
+
+---
+Task ID: 5
+Agent: Super Z (main agent)
+Task: Use uploaded logo (upload/fevicon.png) as the product favicon
+
+Work Log:
+- Inspected upload: 1287x1222 RGBA PNG, blue+green swoosh mark on black
+- Created scripts/make-favicons.py: tight-crops mark bbox with 6% padding, centers on square black tile, LANCZOS downscale
+- Generated favicon set in public/: favicon.ico (16/32/48), favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png (180), icon-192.png, icon-512.png
+- Updated layout.tsx metadata icons: full icon array + apple-touch-icon (was "/logo.svg")
+- Verified: all 6 assets HTTP 200 with correct content-types; rendered HTML contains all icon link tags; eslint clean; no runtime errors
+
+Stage Summary:
+- Favicon now uses the user's uploaded mark across all sizes (browser tab, bookmarks, iOS home screen, PWA)
+- logo.svg retained for in-app branding (login card + sidebar)
